@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Task Management System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀AI Task Management System</h1>
+        <form id="taskForm" method="POST">
+            <label for="description">Task Description</label>
+            <textarea name="description" id="description" rows="4" required></textarea>
+            <label for="deadline">Deadline</label>
+            <input type="date" name="deadline" id="deadline" required>
+            <button type="submit">Predict & Assign</button>
+        </form>
+        <div id="result">
+            {% if output %}
+            <h2>✅Prediction Result</h2>
+            <p>{{ output|safe }}</p>
+            {% endif %}
+            
+            {% if pie_chart %}
+    <h2>📊 Workload Distribution</h2>
+    <img src="data:image/png;base64,{{ pie_chart }}" alt="Workload Pie Chart">
+{% endif %}
+
+        </div>
+
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
